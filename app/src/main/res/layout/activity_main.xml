@@ -10,4 +10,112 @@
     android:orientation="vertical">
 
 
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wybierz rodaj kawy"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:textStyle="bold"
+
+                />
+            <RadioGroup
+                android:id="@+id/kawyradio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                >
+                <RadioButton
+                    android:id="@+id/kawaespresso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espresso"
+                    />
+                <RadioButton
+                    android:id="@+id/kawacapuccino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Capuccino"
+                    />
+                <RadioButton
+                    android:id="@+id/kawalatte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latte"
+                    />
+            </RadioGroup>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz dodatki:"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+mleko" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+cukier"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz ilość kaw:"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="20"
+        android:progress="0"
+        android:progressTint="@color/black"
+        android:progressBackgroundTint="#8F8F8F"
+        android:thumbTint="#123abc"
+        android:padding="20dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:backgroundTint="#62b8f9"
+        android:text="Złóż zamówienie" />
+
+
+
+
+
 </LinearLayout>

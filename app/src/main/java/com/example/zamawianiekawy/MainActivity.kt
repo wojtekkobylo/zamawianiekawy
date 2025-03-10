@@ -1,6 +1,9 @@
 package com.example.zamawianiekawy
 
 import android.os.Bundle
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +19,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val radioGroup = findViewById<RadioGroup>(R.id.kawyradio)
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            val wybor = findViewById<RadioButton>(checkedId).text
+
+        }
+
     }
 }

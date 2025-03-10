@@ -64,11 +64,13 @@
         />
 
     <CheckBox
+        android:id="@+id/mlekociukbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+mleko" />
 
     <CheckBox
+        android:id="@+id/cukierciukbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+cukier"
@@ -110,7 +112,6 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_margin="50dp"
         android:backgroundTint="#62b8f9"
         android:text="Złóż zamówienie" />
 

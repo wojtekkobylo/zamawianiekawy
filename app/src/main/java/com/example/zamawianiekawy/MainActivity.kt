@@ -3,6 +3,7 @@ package com.example.zamawianiekawy
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
@@ -23,45 +24,58 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val radioGroup = findViewById<RadioGroup>(R.id.kawyradio)
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            val wybor = findViewById<RadioButton>(checkedId).text
-        }
-
-            val cukierciukbox = findViewById<CheckBox>(R.id.cukierciukbox)
-            val mlekociukbox = findViewById<CheckBox>(R.id.mlekociukbox)
-
-        cukierciukbox.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                val cukier = true;
-            } else {
-                val cukier = false
-            }
-        }
-        mlekociukbox.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                val mleko = true;
-            } else {
-                val mleko = false;
-            }
-        }
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        val checkBoxMilk = findViewById<CheckBox>(R.id.checkBoxMilk)
+        val checkBoxSugar = findViewById<CheckBox>(R.id.checkBoxSugar)
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        val textViewQuantity = findViewById<TextView>(R.id.textViewQuantity)
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val buttonOrder = findViewById<Button>(R.id.buttonOrder)
+
+        var coffeeType = ""
+        var coffeeImageRes = R.drawable.espresso
+
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            coffeeType = when (checkedId) {
+                R.id.radioEspresso -> "Espresso"
+                R.id.radioCappuccino -> "Cappuccino"
+                R.id.radioLatte -> "Latte"
+                else -> ""
+            }
+
+            coffeeImageRes = when (checkedId) {
+                R.id.radioEspresso -> R.drawable.espresso
+                R.id.radioCappuccino -> R.drawable.capuccino
+                R.id.radioLatte -> R.drawable.latte
+                else -> R.drawable.espresso
+            }
+
+            imageView.setImageResource(coffeeImageRes)
+        }
+
+
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val ilosckawy = "$progress"
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                textViewQuantity.text = "Ilość: $progress"
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
-                Toast.makeText(this@MainActivity, "awaw", Toast.LENGTH_SHORT)
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                Toast.makeText(this@MainActivity, "bwbw", Toast.LENGTH_SHORT)
             }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
 
+            }
         })
-        val submitButton = findViewById<Button>(R.id.submitbutton)
-        submitButton.setOnClickListener {
+
+
+        buttonOrder.setOnClickListener {
+            val milk = if (checkBoxMilk.isChecked) "z mlekiem" else "bez mleka"
+            val sugar = if (checkBoxSugar.isChecked) "z cukrem" else "bez cukru"
+            val ilosc = seekBar.progress
+
+            val summary = "Zamówiono: $coffeeType, $milk, $sugar, Ilość: $ilosc"
+            Toast.makeText(this, summary, Toast.LENGTH_SHORT).show()
 
         }
     }
